@@ -2,21 +2,18 @@ pipeline {
     agent any
  
     triggers {
-        // მხოლოდ stage ბრანჩზე კომიტის დროს გაეშვება
-        pollSCM('H/5 * * * *') // SCM პოლინგი ყოველ 5 წუთში
+        pollSCM('H/5 * * * *')
     }
  
     stages {
         stage('Checkout') {
             steps {
-                // GitHub-იდან რეპოზიტორიის ჩამოტვირთვა
                 git branch: 'stage', url: 'https://github.com/animiqiani/jenkinsfile.git'
             }
         }
  
         stage('User Input') {
             steps {
-                // მომხმარებლისგან input-ის მოთხოვნა
                 script {
                     def userInput = input(
                         id: 'userInput', 
