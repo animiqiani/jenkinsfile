@@ -1,0 +1,6 @@
+git init
+git branch -M stage
+git add Jenkinsfile
+git commit -m "Added initial Jenkinsfile"
+git remote add origin <your-repository-url>
+git push -u origin stage
